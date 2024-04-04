@@ -28,7 +28,7 @@ class ClienteFormRequest extends FormRequest
             'telefone' => 'required|max:15|min:10|unique:clientes,telefone',
             'endereco' => 'required',
             'email' => 'required|email|unique:clientes,email',
-            'senha' => 'required',
+            'password' => 'required',
             'foto' => '',
         ];
     }
@@ -53,7 +53,7 @@ public function failedValidation(Validator $validator)
             'email.required' => 'o email é obrigatorio',
             'email.email' => 'formato de email invalido',
             'email.unique' => 'email ja cadastrado no sistema',
-            'senha.required' => 'a senha obrigatorio',
+            'password.required' => 'a senha obrigatorio',
         ];
     }
 }

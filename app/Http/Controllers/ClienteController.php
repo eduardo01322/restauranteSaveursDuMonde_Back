@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\Hash;
 class ClienteController extends Controller
 {
     public function cliente(ClienteFormRequest $request){
-        $cliente = Cliente::all();
+        $clientes = Cliente::all();
 
-        $clienteComImagem = $cliente->map(function($cliente){
+        $clienteComImagem = $clientes->map(function($cliente){
             return [
                 'nome' => $cliente->nome,
                 'telefone' => $cliente->telefone,
                 'endereco' => $cliente->endereco,
                 'email' => $cliente->email,
                 'password'=> Hash::make($cliente->password),
-                'imagem' => asset('storage/' . $cliente->imagem),
+                'foto' => asset('storage/' . $cliente->foto),
             ];
         });
         return response()->json($clienteComImagem);
@@ -30,7 +30,7 @@ class ClienteController extends Controller
         if ($request->hasFile('imagem')) {
             $imagem = $request->file('imagem');
             $nomeImagem = time() . '.' . $imagem->getClientOriginalExtension();
-            $caminhoImagem = $imagem->storeAs('imagens/cliente', $nomeImagem, 'public');
+            $caminhoImagem = $imagem->storeAs('imagens/clientes', $nomeImagem, 'public');
             $clienteData['imagem'] = $caminhoImagem;
         }
         $cliente = cliente::create($clienteData);
