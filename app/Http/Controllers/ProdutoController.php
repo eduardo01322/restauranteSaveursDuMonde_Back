@@ -25,7 +25,7 @@ class ProdutoController extends Controller
         $produtoData = $request->all();
         if ($request->hasFile('imagem')) {
             $imagem = $request->file('imagem');
-            $nomeImagem = time() . '.' . $imagem->getClienteOriginalExtension();
+            $nomeImagem = time() . '.' . $imagem->getClientOriginalExtension();
             $caminhoImagem = $imagem->storeAs('imagens/produtos', $nomeImagem, 'public');
             $produtoData['imagem'] = $caminhoImagem;
         }
