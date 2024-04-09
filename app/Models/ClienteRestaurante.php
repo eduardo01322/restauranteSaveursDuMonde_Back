@@ -16,5 +16,6 @@ class ClienteRestaurante extends Model
         'email',
         'cpf',
         'password',
+        'foto'
     ];
 }

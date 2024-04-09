@@ -30,6 +30,7 @@ class ClienteRestauranteFormRequest extends FormRequest
             'email' => 'required|email|unique:clientes,email',
             'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
             'password' => 'required',
+            'foto' => '',
         ];
     }
 

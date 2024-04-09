@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class ProdutoRestauranteController extends Controller
 {
     public function Produto(){
-        $produtos = ProdutoRestaurante::all();
+        $produtosR = ProdutoRestaurante::all();
 
-        $produtosComImagem = $produtos->map(function($produto){
+        $produtosComImagem = $produtosR->map(function($produto){
             return [
                 'nome' => $produto->nome,
                 'preco' => $produto->preco,
