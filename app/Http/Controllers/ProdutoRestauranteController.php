@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProdutoRestauranteFormRequest;
 use App\Models\ProdutoRestaurante;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ProdutoRestauranteController extends Controller
         });
         return response()->json($produtosComImagem);
     }
-    public function store(Request $request)
+    public function store(ProdutoRestauranteFormRequest $request)
     {
         $produtoData = $request->all();
         if ($request->hasFile('imagem')) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\ClienteRestauranteFormRequest;
 use App\Models\ClienteRestaurante;
 use Illuminate\Http\Request;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ClienteRestauranteController extends Controller
 {
-    public function clienteRestaurante(ClienteRestauranteFormRequest $request){
+    public function clienteRestaurante(){
         $clientesR = ClienteRestaurante::all();
 
         $clienteCadastro = $clientesR->map(function($cliente){
@@ -26,7 +27,7 @@ class ClienteRestauranteController extends Controller
         });
         return response()->json($clienteCadastro);
     }
-    public function image(Request $request)
+    public function image(ClienteRestauranteFormRequest $request)
     {
         $clienteData = $request->all();
         if ($request->hasFile('imagem')) {
