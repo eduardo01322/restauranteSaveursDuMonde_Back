@@ -33,4 +33,12 @@ class ProdutoRestauranteController extends Controller
         $produto = ProdutoRestaurante::create($produtoData);
         return response()->json(['produto' => $produto], 201);
     }
+
+    public function retornarTodos(){
+        $cliente = ProdutoRestaurante::all();
+        return response()->json([
+            'status'=> true,
+            'data'=> $cliente
+        ]);
+    }
 }

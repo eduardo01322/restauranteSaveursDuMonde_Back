@@ -25,10 +25,10 @@ class ClienteRestauranteFormRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:80|',
-            'telefone' => 'required|max:15|min:10|unique:clientes,telefone',
+            'telefone' => 'required|max:15|min:10|unique:cliente_restaurantes,telefone',
             'endereco' => 'required',
-            'email' => 'required|email|unique:clientes,email',
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
+            'email' => 'required|email|unique:cliente_restaurantes,email',
+            'cpf' => 'required|max:11|min:11|unique:cliente_restaurantes,cpf',
             'password' => 'required',
             'foto' => '',
         ];

@@ -18,7 +18,9 @@ Route::post('/clientes', [ClienteController::class, 'image']);
 //Produtos Restaurante
 Route::get('/produtos/restaurante', [ProdutoRestauranteController::class, 'produto']);
 Route::post('/produtos/restaurante', [ProdutoRestauranteController::class, 'store']);
+Route::get('/produtos/listagem', [ProdutoRestauranteController::class, 'retornarTodos']);
 
-//Cliente
+//Cliente Atv
 Route::get('/clientes/restaurante', [ClienteRestauranteController::class, 'clienteRestaurante']);
 Route::post('/clientes/restaurante', [ClienteRestauranteController::class, 'image']);
+Route::get('/clientes/listagem', [ClienteRestauranteController::class, 'retornarTodos']);

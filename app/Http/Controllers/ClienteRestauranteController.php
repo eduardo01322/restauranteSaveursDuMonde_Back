@@ -27,6 +27,7 @@ class ClienteRestauranteController extends Controller
         });
         return response()->json($clienteCadastro);
     }
+
     public function image(ClienteRestauranteFormRequest $request)
     {
         $clienteData = $request->all();
@@ -38,5 +39,13 @@ class ClienteRestauranteController extends Controller
         }
         $cliente = clienteRestaurante::create($clienteData);
         return response()->json(['cliente' => $cliente], 201);
+    }
+
+    public function retornarTodos(){
+        $cliente = clienteRestaurante::all();
+        return response()->json([
+            'status'=> true,
+            'data'=> $cliente
+        ]);
     }
 }
