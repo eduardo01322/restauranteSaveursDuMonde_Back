@@ -35,10 +35,10 @@ class ProdutoRestauranteController extends Controller
     }
 
     public function retornarTodos(){
-        $cliente = ProdutoRestaurante::all();
+        $produto = ProdutoRestaurante::all();
         return response()->json([
             'status'=> true,
-            'data'=> $cliente
+            'data'=> $produto
         ]);
     }
 }
